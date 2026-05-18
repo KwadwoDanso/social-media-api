@@ -23,8 +23,13 @@ async function mongoDbConnection() {
 mongoDbConnection();
 
 // ROUTES
-app.get("/", (req, res) => {
-    res.send("Server's up and running...");
+app.get("/", async (req, res) => {
+    try {
+        await client.db("admin").command({ ping: 1 });
+        res.json({ message: "Successfully connected to the database!" });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to connect to the database." });
+    }
 });
 
 // PORT
