@@ -1,12 +1,14 @@
 // DEPENDENCIES
 const express = require("express");
 const app = express();
+//require('node:dns').setServers(['0.0.0.0/0','8.8.8.8', '1.1.1.1']);
 require("dotenv").config();
 const { MongoClient } = require("mongodb");
 
 // Local Environmental Variables
-const PORT = process.env.PORT || 3001;
 const uri = process.env.MONGO_URI;
+const PORT = process.env.PORT || 3001;
+
 
 // MIDDLEWARE
 const client = new MongoClient(uri);
