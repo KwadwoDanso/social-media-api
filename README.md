@@ -27,15 +27,16 @@ Lab 1: Connecting a Database.
 `.env` is git-ignored. Never commit credentials. See `.env.example`.
 
 ## Reflection
-**1. Why whitelist IPs in production?**
+**Why is it important to whitelist IP addresses in a real-world production environment? What are the risks of allowing connections from anywhere (0.0.0.0/0)?**
 `0.0.0.0/0` allows any IP to attempt connecting. Production should restrict to trusted IPs only.
 
-**2. What does dotenv do?**
+**What is the purpose of the dotenv package? What other methods could you use to manage environment variables in a production environment (e.g., in a cloud hosting service)?**
 Loads `.env` file variables into `process.env` so secrets stay out of source code.
 
-**3. Debug steps if connection fails?**
+**If your application failed to connect, what are the first few steps you would take to debug the issue?**
 Check connection string, DB username, password (no special chars), Atlas Network Access, `.env` location, and that the cluster is active.
 
+**Challenge**
 Was having error  PS C:\Users\...\...\mongoDB\social-media-api> node server.js
 ◇ injected env (2) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
 Server running on: http://localhost:3001
